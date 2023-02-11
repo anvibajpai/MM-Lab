@@ -24,7 +24,7 @@ debug: clean all
 runner: runner.c csbrk_tracked.o umalloc.o check_heap.o err_handler.o support.o
 	$(CC) $(CFLAGS) -o runner runner.c  umalloc.h csbrk_tracked.o umalloc.o check_heap.o err_handler.o support.o
 
-performance: performance.c csbrk.o  umalloc.o support.o err_handler.o
+performance: performance.c csbrk.o umalloc.o support.o err_handler.o
 	$(CC) $(CFLAGS) -o performance performance.c umalloc.h csbrk.o umalloc.o err_handler.o support.o
 
 unittest: unittest.o support.o umalloc.o csbrk.o err_handler.o check_heap.o

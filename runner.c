@@ -8,7 +8,6 @@
  * May not be used, modified, or copied without permission.
  **************************************************************************/
 
-#include "ansicolors.h"
 #include "csbrk.h"
 #include "support.h"
 #include "check_heap.h"
@@ -17,7 +16,7 @@
 int verbose = 0;
 char msg[MAXLINE];      /* for whenever we need to compose an error message */
 extern size_t sbrk_bytes;
-const char author[] = ANSI_BOLD ANSI_COLOR_RED "REPLACE THIS WITH YOUR NAME AND UT EID" ANSI_RESET;
+extern const char author[];
 
 /* 
  * usage - Explain the command line arguments
