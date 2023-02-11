@@ -83,11 +83,11 @@ if performance_score > 25:
     performance_score = 25
 
 correctness_average = sum(trace_correctness) / len(trace_correctness)
-correctness_score = 20 * correctness_average
+correctness_score = 15 * correctness_average
 scale_factor = 1
 if correctness_average < 1.0:
     scale_factor = 0
-print (f"Correct: {correctness_score}/20, perf: {performance_score}/20, util: {utilization_score}/50")
-print ("Score " + str(math.ceil(correctness_score + ((performance_score + utilization_score) * scale_factor))) + " / 90")
-print ("The other ten points come from the style check, after the assignment is turned in")
+print (f"Correct: {correctness_score}/15, perf: {performance_score}/20, util: {utilization_score}/50")
+print ("Score " + str(math.ceil(correctness_score + ((performance_score + utilization_score) * scale_factor))) + " / 85")
+print ("The other fifteen points come from the style check and writeup after the assignment is turned in.")
 
