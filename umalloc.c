@@ -1,10 +1,7 @@
 #include "umalloc.h"
 #include "csbrk.h"
-#include "ansicolors.h"
 #include <stdio.h>
 #include <assert.h>
-
-const char author[] = ANSI_BOLD ANSI_COLOR_RED "REPLACE THIS WITH YOUR NAME AND UT EID" ANSI_RESET;
 
 /*
  * The following helpers can be used to interact with the memory_block_t
