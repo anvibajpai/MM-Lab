@@ -16,7 +16,8 @@ typedef struct memory_block_struct {
     struct memory_block_struct *next;
 } memory_block_t;
 
-// Helper Functions, this may be editted if you change the signature in umalloc.c
+// Helper Functions. Their parameters may be edited if you change their 
+// signature in umalloc.c. Do not change their purpose.
 bool is_allocated(memory_block_t *block);
 void allocate(memory_block_t *block);
 void deallocate(memory_block_t *block);
