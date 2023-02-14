@@ -15,10 +15,7 @@ extern memory_block_t *free_head;
  *        lowest address first, ensure that memory addresses strictly ascend as you
  *        traverse the free list.
  *
- *      - Check if any memory_blocks (free and allocated) overlap with each other. 
- *        Hint: Run through the heap sequentially and check that for some memory_block 
- *        n, memory_block n+1 has a sensible block_size and is within the valid heap addresses. 
- *        Consider tracking the lowest and highest heap addresses you have ever seen.
+ *      - Check if any free memory_blocks overlap with each other. 
  *
  *      - Ensure that each memory_block is aligned. 
  * 
