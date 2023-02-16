@@ -1,5 +1,6 @@
 
 #include "umalloc.h"
+#include <stdio.h>
 
 //Place any variables needed here from umalloc.c as an extern.
 extern memory_block_t *free_head;
@@ -15,7 +16,10 @@ extern memory_block_t *free_head;
  *        lowest address first, ensure that memory addresses strictly ascend as you
  *        traverse the free list.
  *
- *      - Check if any free memory_blocks overlap with each other. 
+ *      - Check if any memory_blocks (free and allocated) overlap with each other. 
+ *        Hint: Run through the heap sequentially and check that for some memory_block 
+ *        n, memory_block n+1 has a sensible block_size and is within the valid heap addresses. 
+ *        Consider tracking the lowest and highest heap addresses you have ever seen.
  *
  *      - Ensure that each memory_block is aligned. 
  * 
@@ -34,5 +38,30 @@ int check_heap() {
             }
         }
     */
+   memory_block_t *cur = free_head;
+   while (cur) {
+        printf("Memory block address: %p  Memory block size:  %lu \n", cur, cur->block_size_alloc); 
+        
+        //check in order
+        if(cur->next && cur > cur->next) {
+            return -1;
+        }
+
+        //check align
+        if((unsigned long) cur % ALIGNMENT != 0) {
+            return -1;
+        }
+
+        //check overlap
+        if (cur->next && (char *) (cur + cur->block_size_alloc) >= (char *) cur->next) {
+            return -1;
+        }
+
+        if(is_allocated(cur)) {
+            return -1;
+        }
+        
+        cur = cur->next;
+   }
     return 0;
 }
